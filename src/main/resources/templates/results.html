@@ -1,0 +1,19 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Current Forcast</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
+        <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+	<body>
+		<div class="container">
+            Form Success
+            <p th:text="'lat: ' + ${coordForm.lat}" />
+            <p th:text="'lon: ' + ${coordForm.lon}" />
+            <a href="/coord">Add different coordinates</a>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Weather Radar</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "bootstrap": "https://unpkg.com/bootstrap",
+                "@popperjs/core": "https://unpkg.com/@popperjs/core"
+            }
+        }
+    </script>
+    <script type="module">
+        import 'bootstrap';
+    </script>
+	<base href="/" />
+</head>
+
+<body>
+	<header>
+		<div class="container">
+            <div class="row head_row">
+                <div class="col-sm-12">
+                    <h1>Justin Kimble Weather App</h1>
+                </div>
+                <div class="col-sm-12 center-xs">
+                    <nav class="nav nav-tabs">
+                        <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home">Coordinate Search</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#city">City Search</a>
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#map">Map View</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="row tab-content">
+                <div class="col-xs-12 center-xs tab-pane fade show active" role="tabpanel" id="home">
+                    <h2>Search for weather anywhere in the world:</h2>
+                    <a href="/coord">Search now</a>
+                </div>
+                <div class="col-xs-12 center-xs tab-pane fade" role="tabpanel" id="city">
+                    <h2>City search:</h2>
+                </div>
+            </div>
+		</div>
+	</main>
+
+</body>
+
+</html>
