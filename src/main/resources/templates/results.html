@@ -10,9 +10,15 @@
     </head>
 	<body>
 		<div class="container">
-            Form Success
-            <p th:text="'lat: ' + ${coordForm.lat}" />
-            <p th:text="'lon: ' + ${coordForm.lon}" />
+            <!--
+            <p th:text="'lat: ' + ${coordForm.lat}"></p>
+            <p th:text="'lon: ' + ${coordForm.lon}"></p>
+            -->
+            <h1 th:text="${name} ?: 'Unlisted Region'"></h1>
+            <h2 th:text="${country} ?: 'Unlisted'"></h2>
+            <h3 th:text="${type}"></h3>
+            <h5 th:text="${desc}"></h5>
+            <p th:text="'wind speed: ' + ${wind}"></p> 
             <a href="/coord">Add different coordinates</a>
         </div>
 	</body>
