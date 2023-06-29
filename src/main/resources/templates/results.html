@@ -14,12 +14,16 @@
             <p th:text="'lat: ' + ${coordForm.lat}"></p>
             <p th:text="'lon: ' + ${coordForm.lon}"></p>
             -->
-            <h1 th:text="${name} ?: 'Unlisted Region'"></h1>
-            <h2 th:text="${country} ?: 'Unlisted'"></h2>
-            <h3 th:text="${type}"></h3>
-            <h5 th:text="${desc}"></h5>
-            <p th:text="'wind speed: ' + ${wind}"></p> 
-            <a href="/coord">Add different coordinates</a>
+            <div class="row info_row" >
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <h1 th:text="${name} ?: 'Unlisted Region'"></h1>
+                    <h2 th:text="${country} ?: 'Unlisted'"></h2>
+                    <h3 th:text="${type}"></h3>
+                    <h5 th:text="${desc}"></h5>
+                    <p th:text="'wind speed: ' + ${wind}"></p> 
+                    <a href="/coord">Add different coordinates</a>
+                </div>
+            </div>
         </div>
 	</body>
 </html>
