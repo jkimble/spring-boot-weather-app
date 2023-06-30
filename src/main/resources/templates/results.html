@@ -7,23 +7,43 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
         <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link th:href="@{/styles/style.css}" rel="stylesheet" />
     </head>
 	<body>
-		<div class="container">
+		<main class="coord_result_wrap">
             <!--
             <p th:text="'lat: ' + ${coordForm.lat}"></p>
             <p th:text="'lon: ' + ${coordForm.lon}"></p>
             -->
-            <div class="row info_row" >
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <h1 th:text="${name} ?: 'Unlisted Region'"></h1>
-                    <h2 th:text="${country} ?: 'Unlisted'"></h2>
-                    <h3 th:text="${type}"></h3>
-                    <h5 th:text="${desc}"></h5>
-                    <p th:text="'wind speed: ' + ${wind}"></p> 
-                    <a href="/coord">Add different coordinates</a>
+            <div class="row hero-row">
+                <div class="col-xs-12 center-xs coord coord_result">
+                    <h3 class="coord_head">Current forcast for</h3>
+                    <h1 class="coord_name" th:text="${name} ?: 'Unlisted Region'"></h1>
+                    <h2 class="coord_country" th:text="${country} ?: 'Unlisted'"></h2>
+                    <h3 class="coord_temp" th:text="${temp} + '&deg;F'"></h3>
+                    <img class="coord_temp_icon" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
                 </div>
             </div>
-        </div>
+            <div class="container other_info">
+                <div class="row info_row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 info_col ops">
+                        <h2>Temperature</h2>
+                        
+                        <a href="/coord">Add different coordinates</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 info_col weather">
+                        <h2>Weather</h2>
+                        <img class="coord_temp_icon_body" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
+                        <h3 th:text="${type}"></h3>
+                        <h5 th:text="${desc}"></h5>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 info_col wind">
+                        <h2>Wind</h2>
+                        <p th:text="'wind speed: ' + ${wind}"></p> 
+                        <a href="/coord">Add different coordinates</a>
+                    </div>
+                </div>
+            </div>
+        </main>
 	</body>
 </html>

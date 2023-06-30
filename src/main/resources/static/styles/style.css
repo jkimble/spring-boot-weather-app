@@ -1,0 +1,27 @@
+/*****************************
+* SpringWeather App Styling
+* Theme by Justin Kimble
+****************************/
+/******************
+* General styles
+*******************/
+:root {
+  --main-color: #2D80D2;
+  --main-accent-1: #2DD2D2;
+  --main-accent-2: #2DD280;
+}
+.hero-row {
+  text-align: center;
+  padding: 5rem 0;
+  background: #2d80d2;
+  background: linear-gradient(90deg, #2d80d2 0%, #2dd2d2 35%, rgba(45, 210, 128, 0.59845945) 100%);
+}
+.hero-row .coord_name {
+  font-size: 64px;
+  line-height: 75px;
+  font-weight: bold;
+}
+.hero-row .coord_temp {
+  display: inline;
+  font-weight: bold;
+}
