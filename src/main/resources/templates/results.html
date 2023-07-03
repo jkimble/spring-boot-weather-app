@@ -1,40 +1,12 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Current Forcast</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
-        <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">        <link th:href="@{/styles/style.css}" rel="stylesheet" />
+        <title th:text="'Current weather for ' + ${name}"></title>
+        <div th:replace="~{fragments/head :: head}"></div>
     </head>
 	<body>
-        <header>
-            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
-                <div class="container">
-                    <a class="navbar-brand display-1" href="/">Spring Weather</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#resNav" aria-controls="resNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="resNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/coord">Coordinate Search</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
 		<main class="coord_result_wrap">
-            <!--
-            <p th:text="'lat: ' + ${coordForm.lat}"></p>
-            <p th:text="'lon: ' + ${coordForm.lon}"></p>
-            -->
             <div class="row hero-row">
                 <div class="col-xs-12 center-xs coord coord_result">
                     <h3 class="coord_head">Current forcast for</h3>
