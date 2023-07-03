@@ -23,9 +23,10 @@ public class WebController implements WebMvcConfigurer {
     
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("home");
         registry.addViewController("/results").setViewName("results");
         registry.addViewController("/city").setViewName("city");
-        registry.addViewController("/").setViewName("home");
+        registry.addViewController("/aqi").setViewName("aqi");
     }
 
     @GetMapping("/coord")
