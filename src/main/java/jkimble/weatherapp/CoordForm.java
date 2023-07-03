@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Digits;
 public class CoordForm {
 
     @NotNull
-    @Digits(integer = 2, fraction = 2)
+    @Digits(integer = 3, fraction = 3)
     private Double lat;
 
     @NotNull
-    @Digits(integer = 2, fraction = 2)
+    @Digits(integer = 3, fraction = 3)
     private Double lon;
 
     public Double getLat() {

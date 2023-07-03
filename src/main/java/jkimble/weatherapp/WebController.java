@@ -14,12 +14,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.Iterator;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Map.Entry;
 
 @Controller
 public class WebController implements WebMvcConfigurer {
@@ -49,60 +46,29 @@ public class WebController implements WebMvcConfigurer {
         JsonNode json = new ObjectMapper().readTree(new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=8fe44c03b38ef50e722f5d2c9c2bd80d&units=imperial"));
         System.out.println(json.toString());
 
-        // get the weather data
-        /*  
-        JsonNode nameNode = json.get("name");
-        JsonNode countryNode = json.get("sys").get("country");
-        if (nameNode != null) {
-            model.addAttribute("name", nameNode.asText());
-        }
-        if (countryNode != null) {
-            model.addAttribute("country", countryNode.asText());
-        }
-        */
-
         JsonNode weatherNode = json.get("weather");
         JsonNode weatherArray = weatherNode.get(0);
         JsonNode weatherType = weatherArray.get("main");
         JsonNode weatherDescription = weatherArray.get("description");
         JsonNode weatherIcon = weatherArray.get("icon");
+        JsonNode rain = json.get("rain");
         model.addAttribute("type", weatherType.asText());
         model.addAttribute("desc", weatherDescription.asText());
         model.addAttribute("icon", weatherIcon.asText());
-        /*
-        JsonNode mainNode = json.get("main");
-        JsonNode tempNode = mainNode.get("temp");
-        JsonNode tempFeel = mainNode.get("feels_like");
-        JsonNode tempMin = mainNode.get("temp_min");
-        JsonNode tempMax = mainNode.get("temp_max");
-        JsonNode humidityNode = mainNode.get("humidity");
-        model.addAttribute("temp", tempNode.asInt());
-
-
-        JsonNode windNode = json.get("wind");
-        JsonNode windSpeedNode = windNode.get("speed");
-        JsonNode windDegNode = windNode.get("deg");
-        JsonNode windGustNode = windNode.get("gust");
-        model.addAttribute("wind", windSpeedNode.asText()); 
-
-        Iterator<String> keys = (Iterator<String>) json.fieldNames();
-        while (keys.hasNext()) {
-            String key = keys.next();
-            String value = json.get(key).asText();
-            model.addAttribute(key, value);
+        if (rain!= null) {
+            model.addAttribute("rainfall", rain.get("1h").asText());
         }
-        */
 
         Iterator<Map.Entry<String, JsonNode>> fields = json.fields();
         while (fields.hasNext()) {
             Map.Entry<String, JsonNode> field = fields.next();
             model.addAttribute(field.getKey(), field.getValue().asText());
-            System.out.println(field.getKey() + ':' + field.getValue().asText());
+            //System.out.println(field.getKey() + ':' + field.getValue().asText());
             JsonNode inner = field.getValue();
             Iterator<Map.Entry<String, JsonNode>> innerFields = inner.fields();
             while (innerFields.hasNext()) {
                 Map.Entry<String, JsonNode> innerField = innerFields.next();
-                System.out.println(innerField.getKey() + ':' + innerField.getValue().asText());
+                //System.out.println(innerField.getKey() + ':' + innerField.getValue().asText());
                 model.addAttribute(innerField.getKey(), innerField.getValue().asText());
             }
         }

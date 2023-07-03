@@ -14,16 +14,16 @@
                 <table class="simple-form">
                     <tr>
                         <td>Latitude:</td>
-                        <td><input type="number" step="0.01" th:field="*{lat}" /></td>
+                        <td><input type="number" step="0.001" th:field="*{lat}" /></td>
                         <td th:if="${#fields.hasErrors('lat')}" th:errors="*{lat}">Error</td>
                     </tr>
                     <tr>
                         <td>Longitude:</td>
-                        <td><input type="number" step="0.01" th:field="*{lon}" /></td>
+                        <td><input type="number" step="0.001" th:field="*{lon}" /></td>
                         <td th:if="${#fields.hasErrors('lon')}" th:errors="*{lon}">Error</td>
                     </tr>
                     <tr>
-                        <td><button type="submit">Submit</button><button type="reset" value="reset">Reset</button></td>
+                        <td><button class="btn btn-primary" type="submit">Submit</button><button class="btn btn-danger" type="reset" value="reset">Reset</button></td>
                     </tr>
                 </table>
             </form>
