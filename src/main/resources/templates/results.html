@@ -10,6 +10,26 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">        <link th:href="@{/styles/style.css}" rel="stylesheet" />
     </head>
 	<body>
+        <header>
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand display-1" href="/">Spring Weather</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#resNav" aria-controls="resNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="resNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/coord">Coordinate Search</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 		<main class="coord_result_wrap">
             <!--
             <p th:text="'lat: ' + ${coordForm.lat}"></p>
@@ -18,7 +38,7 @@
             <div class="row hero-row">
                 <div class="col-xs-12 center-xs coord coord_result">
                     <h3 class="coord_head">Current forcast for</h3>
-                    <h1 class="coord_name" th:text="${name} ?: 'Unlisted Region'"></h1>
+                    <h1 class="coord_name display-1" th:text="${name} ?: 'Unlisted Region'"></h1>
                     <h2 class="coord_country" th:text="${country} ?: 'Unlisted'"></h2>
                     <h3 class="coord_temp" th:text="${#numbers.formatDecimal(temp == null ? 0 : temp, 0, 0)} + '&deg;F'"></h3>
                     <img class="coord_temp_icon" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
@@ -35,42 +55,6 @@
             </div>
             <div class="container other_info">
                 <div class="row info_row">
-                    <!-- Test bs card look 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 info_col ops">
-                        <h2>Temperature</h2>
-                        <h3 class="coord_temp" th:text="${#numbers.formatDecimal(temp == null ? 0 : temp, 0, 0)} + '&deg;F'"></h3>
-                        <h4 class="coord_feel" th:text="'Feels like: ' + ${#numbers.formatDecimal(feels_like == null ? 0 : feels_like, 0, 0)} + '&deg;F'"></h4>
-                        <div class="accordion">
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dataCollapse" aria-expanded="true" aria-controls="dataCollapse">
-                                        More Details
-                                    </button>
-                                </h3>
-                                <div id="dataCollapse" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent=".accordion">
-                                    <div class="accordion-body">
-                                        <p class="coord_temp_min" th:text="'Min Temperature: ' + ${#numbers.formatDecimal(temp_min == null ? 0 : temp_min, 0, 0)} + '&deg;F'"></p>
-                                        <p class="coord_temp_min" th:text="'Max Temperature: ' + ${#numbers.formatDecimal(temp_max == null ? 0 : temp_max, 0, 0)} + '&deg;F'"></p>
-                                        <p class="coord_temp_min" th:text="'Humidity: ' + ${humidity} + '%'"></p>
-                                        <p class="coord_temp_min" th:text="'Pressure: ' + ${pressure} + 'Hg'"></p>
-                                    </div>
-                                  </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 info_col weather">
-                        <h2>Weather</h2>
-                        <span class="coord_desc" th:text="${desc}"></span>
-                        <img class="coord_temp_icon_body" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
-                        <h3 th:if="${rainfall != null}" th:text="'1 hour rainfall: ' + ${rainfall}"></h3>
-                        <h3 th:if="${all != null}" th:text="'Clour coverage: ' + ${all} + '%'"></h3>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 info_col wind">
-                        <h2>Wind</h2>
-                        <h4 th:text="'Speed: ' + ${#numbers.formatDecimal(speed == null ? 0 : speed, 0, 0)} + 'mph'"></h4><span><i class="bi bi-arrow-up-circle-fill"></i></span>
-                        <h4 th:text="'Gust: ' + ${#numbers.formatDecimal(gust == null ? 0 : gust, 0, 0)} + 'mph'"></h4>
-                    </div>
-                    -->
                     <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-5 info_col ops">
                         <div class="card-header">
                             Temperature <i class="bi bi-thermometer-half"></i>
@@ -116,12 +100,24 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <a href="/">App info</a>
+                                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">App info</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">About SpringWeather</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <h2>Thank you for using SpringWeather!</h2>
+                  <p class="lead">
+                    By Justin Kimble
+                  </p>
+                </div>
+              </div>
         </main>
         <style th:inline="css">
             .bi-arrow-up-circle-fill::before {

@@ -24,9 +24,9 @@ body {
   background: linear-gradient(90deg, #2d80d2 0%, #2dd2d2 35%, rgba(45, 210, 128, 0.59845945) 100%);
 }
 .hero-row .coord_name {
-  font-size: 64px;
-  line-height: 75px;
-  font-weight: bold;
+  /*    font-size: 64px;
+            line-height: 75px;
+            font-weight: bold; */
 }
 .hero-row .coord_temp {
   display: inline;

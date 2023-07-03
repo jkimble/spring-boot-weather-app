@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8" />
@@ -9,45 +9,38 @@
 	<meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
     <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "bootstrap": "https://unpkg.com/bootstrap",
-                "@popperjs/core": "https://unpkg.com/@popperjs/core"
-            }
-        }
-    </script>
-    <script type="module">
-        import 'bootstrap';
-    </script>
 	<base href="/" />
 </head>
 
 <body>
 	<header>
-		<div class="container">
-            <div class="row head_row">
-                <div class="col-sm-12">
-                    <h1>SpringWeather</h1>
-                </div>
-                <div class="col-sm-12 center-xs">
-                    <nav class="nav nav-tabs">
-                        <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home">Coordinate Search</a>
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#city">City Search</a>
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#map">Map View</a>
-                    </nav>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
+            <div class="container">
+                <a class="navbar-brand display-1" href="/">Spring Weather</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#resNav" aria-controls="resNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="resNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" tabindex="-1" aria-disabled="true">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/coord">Coordinate Search</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-	</header>
+        </nav>
+    </header>
 	<main>
 		<div class="container">
 			<div class="row tab-content">
-                <div class="col-xs-12 center-xs tab-pane fade show active" role="tabpanel" id="home">
+                <div class="" role="tabpanel" id="home">
                     <h2>Search for weather anywhere in the world:</h2>
                     <a href="/coord">Search now</a>
                 </div>
-                <div class="col-xs-12 center-xs tab-pane fade" role="tabpanel" id="city">
+                <div class="" role="tabpanel" id="city">
                     <h2>City search:</h2>
                 </div>
             </div>
