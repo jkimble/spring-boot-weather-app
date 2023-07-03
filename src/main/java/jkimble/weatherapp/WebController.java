@@ -28,6 +28,8 @@ public class WebController implements WebMvcConfigurer {
 
     @GetMapping("/coord")
     public String showForm(CoordForm coordForm, Model model) {
+        model.addAttribute("pageTitle", "Current Weather: Coordinate Search");
+        model.addAttribute("activePage", "active");
         return "form";
     }
 
@@ -72,7 +74,8 @@ public class WebController implements WebMvcConfigurer {
                 model.addAttribute(innerField.getKey(), innerField.getValue().asText());
             }
         }
-        
+        model.addAttribute("pageTitle", "Current weather for " + model.getAttribute("name"));
+        model.addAttribute("activePage", "active");
         return "results";
     }
 

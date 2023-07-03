@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Weather Radar</title>
-	<meta name="description" content="" />
-	<meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
-    <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
-	<base href="/" />
-</head>
-
-<body>
-	<header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Weather Radar</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/dist/css/bootstrap.min.css" />
+        <script src="/webjars/bootstrap/dist/js/bootstrap.min.js"></script>
+        <base href="/" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand display-1" href="/">Spring Weather</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#resNav" aria-controls="resNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="resNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#" tabindex="-1" aria-disabled="true">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/coord">Coordinate Search</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
             <div class="container">
-                <a class="navbar-brand display-1" href="/">Spring Weather</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#resNav" aria-controls="resNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="resNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" tabindex="-1" aria-disabled="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/coord">Coordinate Search</a>
-                        </li>
-                    </ul>
+                <div class="row tab-content">
+                    <div class="" role="tabpanel" id="home">
+                        <h2>Search for weather anywhere in the world:</h2>
+                        <a href="/coord">Search now</a>
+                    </div>
+                    <div class="" role="tabpanel" id="city">
+                        <h2>City search:</h2>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-	<main>
-		<div class="container">
-			<div class="row tab-content">
-                <div class="" role="tabpanel" id="home">
-                    <h2>Search for weather anywhere in the world:</h2>
-                    <a href="/coord">Search now</a>
-                </div>
-                <div class="" role="tabpanel" id="city">
-                    <h2>City search:</h2>
-                </div>
-            </div>
-		</div>
-	</main>
-
-</body>
+        </main>
+    </body>
 
 </html>
