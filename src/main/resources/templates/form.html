@@ -5,13 +5,13 @@
         <div th:replace="~{fragments/navbar :: navbar}"></div>
         <main class="container">
             <form action="#" th:action="@{/coord}" th:object="${coordForm}" method="post">
-                <div class="mb-3">
-                    <label for="lat" class="form-label">Latitude</label>
+                <div class="mb-3 form-floating">
                     <input id="lat" class="form-control" type="number" placeholder="Enter latitude up to 3 decimals." step="0.001" th:field="*{lat}" />
+                    <label for="lat" class="form-label">Latitude</label>
                 </div>
-                <div class="mb-3">
-                    <label for="lon" class="form-label">Latitude</label>
+                <div class="mb-3 form-floating">
                     <input id="lon" class="form-control" type="number" placeholder="Enter longitude up to 3 decimals." step="0.001" th:field="*{lon}" />
+                    <label for="lon" class="form-label">Latitude</label>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-primary" type="submit">Submit</button><button class="btn btn-danger" type="reset" value="reset">Reset</button>

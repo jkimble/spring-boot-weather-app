@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{fragments/head :: head}"></div>
+	<body>
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+		<main class="coord_result_wrap">
+            <div class="row hero-row">
+                <div class="col-xs-12 center-xs coord coord_result">
+                    <h3 class="coord_head">Current forcast for</h3>
+                    <h1 class="coord_name display-1" th:text="${name} ?: 'Unlisted Region'"></h1>
+                    <h2 class="coord_country" th:text="${country} ?: 'Unlisted'"></h2>
+                    <h3 class="coord_temp" th:text="${#numbers.formatDecimal(temp == null ? 0 : temp, 0, 0)} + '&deg;F'"></h3>
+                    <img class="coord_temp_icon" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
+                    <span th:text="${desc}"></span>
+                </div>
+                <div class="col-xs-12 btn-row">
+                    <div class="row btn-row">
+                        <div class="col-xs-12">
+                            <a class="btn btn-primary" href="/city">Search again</a>
+                            <a class="btn btn-primary" href="/">Go to homepage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container other_info">
+                <div class="row info_row">
+                    <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-5 info_col ops">
+                        <div class="card-header">
+                            Temperature <i class="bi bi-thermometer-half"></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><p class="coord_temp" th:text="'Temperature: ' + ${#numbers.formatDecimal(temp == null ? 0 : temp, 0, 0)} + '&deg;F'"></p></li>
+                            <li class="list-group-item"><p class="coord_feel" th:text="'Feels like: ' + ${#numbers.formatDecimal(feels_like == null ? 0 : feels_like, 0, 0)} + '&deg;F'"></p></li>
+                            <li class="list-group-item"><p class="coord_temp_min" th:text="'Min Temperature: ' + ${#numbers.formatDecimal(temp_min == null ? 0 : temp_min, 0, 0)} + '&deg;F'"></p></li>
+                            <li class="list-group-item"><p class="coord_temp_min" th:text="'Max Temperature: ' + ${#numbers.formatDecimal(temp_max == null ? 0 : temp_max, 0, 0)} + '&deg;F'"></p></li>
+                            <li class="list-group-item"><p class="coord_temp_min" th:text="'Humidity: ' + ${humidity} + '%'"></p></li>
+                        </ul>
+                    </div>
+                    <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-5 info_col weather">
+                        <div class="card-header">
+                            Weather <i class="bi bi-clouds-fill"></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="coord_desc" th:text="${desc}"></span>
+                                <img class="coord_temp_icon_body" th:src="@{'http://openweathermap.org/img/w/' + ${icon} + '.png'}" />
+                            </li>
+                            <li th:if="${rainfall != null}" class="list-group-item"><p th:if="${rainfall != null}" th:text="'1 hour rainfall: ' + ${rainfall} + 'in'"></p></li>
+                            <li th:if="${all != null}" class="list-group-item"><p th:if="${all != null}" th:text="'Cloud coverage: ' + ${all} + '%'"></p></li>
+                            <li class="list-group-item"><p class="coord_temp_min" th:text="'Pressure: ' + ${pressure} + 'Hg'"></p></li>
+                        </ul>
+                    </div>
+                    <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-5 info_col wind">
+                        <div class="card-header">
+                            Wind  <i class="bi bi-wind"></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p th:text="'Speed: ' + ${#numbers.formatDecimal(speed == null ? 0 : speed, 0, 0)} + 'mph'"></p><span><i class="bi bi-arrow-up-circle-fill"></i></span>
+                            </li>
+                            <li class="list-group-item">
+                                <p th:text="'Gust: ' + ${#numbers.formatDecimal(gust == null ? 0 : gust, 0, 0)} + 'mph'"></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-5 info_col extra">
+                        <div class="card-header">
+                            More Info <i class="bi bi-info-circle-fill"></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">App info</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">About SpringWeather</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <h2>Thank you for using SpringWeather!</h2>
+                  <p class="lead">
+                    By Justin Kimble
+                  </p>
+                </div>
+              </div>
+        </main>
+        <style th:inline="css">
+            .bi-arrow-up-circle-fill::before {
+                transform: rotate([(${deg})]deg);
+            }
+        </style>
+	</body>
+</html>

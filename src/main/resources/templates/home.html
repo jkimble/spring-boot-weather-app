@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{fragments/head :: head}"></div>
+    <body>
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <main>
+            <div class="container">
+                <div class="row tab-content">
+                    <div class="" role="tabpanel" id="home">
+                        <h2>Search for weather anywhere in the world:</h2>
+                        <a href="/coord">Search now</a>
+                    </div>
+                    <div class="" role="tabpanel" id="city">
+                        <h2>City search:</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

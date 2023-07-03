@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{fragments/head :: head}"></div>
+    <body>
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <main class="container">
+            <form action="#" th:action="@{/city}" th:object="${cityCurrent}" method="post">
+                <div class="mb-3 form-floating">
+                    <input id="cityInput" class="form-control" type="text" placeholder="e.g. Cleveland, Ohio, US" th:field="*{city}" required />
+                    <label for="cityInput" class="form-label">Search for a city</label>
+                    <p  th:if="${#fields.hasErrors('city')}" th:class="${#fields.hasErrors('city')}? error btn-danger" th:errors="*{city}">
+                        Invalid City</p>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Submit</button><button class="btn btn-danger" type="reset" value="reset">Reset</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
