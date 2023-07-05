@@ -11,6 +11,9 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+header #resNav {
+  justify-content: flex-end;
+}
 :root {
   --main-color: #2D80D2;
   --main-accent-1: #2DD2D2;
