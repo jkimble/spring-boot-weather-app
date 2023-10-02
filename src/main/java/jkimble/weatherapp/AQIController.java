@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 @Controller
+
 public class AQIController implements WebMvcConfigurer {
     @GetMapping("/aqi")
     public String currentAQIForm(CurrentAQI currentAQI, Model aqiModel) {
